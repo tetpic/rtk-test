@@ -1,0 +1,24 @@
+.navigation {
+    background-color: beige;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;    
+}
+
+.link {
+    text-decoration: none;
+    color: black;
+    font-weight: 700;
+    background-color: blanchedalmond;
+    transition: .2s linear;
+    padding: 10px 20px;
+    border-radius: 15px;
+    &:hover {
+        background-color: gray;
+    }
+}
+
+.active {
+    background-color: black;
+    color: white;
+}

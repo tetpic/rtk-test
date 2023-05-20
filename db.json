@@ -1,0 +1,187 @@
+{
+  "table": {
+    "items":[
+      {
+        "field1": true, 
+        "field2": "2012-04-23T18:25:43.511Z",
+        "field3": "2022/02/23",
+        "field4": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "field1": false, 
+        "field2": ["2012-04-23T18:25:43.511Z", true, "lol", "kek", 0, 1],
+        "field3": "2012-04-23",
+        "field4": "2012-04-23T18:25:43.511Z",
+        "field5": "2012-04-23T18:25:43.511Z"
+      }, 
+      {
+        "field1": true, 
+        "field2": "2012-04-23T18:25:43.511Z",
+        "field3": "2012-04-23T18:25:43.511Z",
+        "state": "danger"
+      },  
+      {
+        "field1": true, 
+        "field2": {
+          "type": "object",
+          "whattodo": "i don't know, it wasn't mentioned in task"
+        },
+        "field3": "https://www.youtube.com/watch?v=avb-VDa3ZG4",
+        "field4": "2012-04-23T18:25:43.511Z",
+        "state": "warning"
+      }, 
+      {
+        "field1": true, 
+        "field2": "2012-04-23T18:25:43.511Z",
+        "field3": "2012-04-23T18:25:43.511Z",
+        "field4": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "field1": false, 
+        "field2": ["2012-04-23T18:25:43.511Z", true, "lol", "kek", 0, 1],
+        "field3": "2012-04-23T18:25:43.511Z",
+        "field4": "2012-04-23T18:25:43.511Z",
+        "field5": "2012-04-23T18:25:43.511Z"
+      }, 
+      {
+        "field1": true, 
+        "field2": "2012-04-23T18:25:43.511Z",
+        "field3": "2012-04-23T18:25:43.511Z",
+        "state": "normal"
+      }, 
+      {
+        "field1": true, 
+        "field2": {
+          "type": "object",
+          "whattodo": "oooh.... object again... should i parse it as array?"
+
+        },
+        "field3": "https://www.youtube.com/watch?v=avb-VDa3ZG4",
+        "field4": "2012-04-23T18:25:43.511Z",
+        "state": "warning"
+      },  {
+        "field1": true, 
+        "field2": "2012-04-23T18:25:43.511Z",
+        "field3": "2012-04-23T18:25:43.511Z",
+        "field4": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "field1": false, 
+        "field2": [ true, "lol", "kek", false, 0, 1],
+        "field3": "2012-04-23T18:25:43.511Z",
+        "field4": "2012-04-23T18:25:43.511Z",
+        "field5": "2012-04-23T18:25:43.511Z"
+      }, 
+      {
+        "field1": true, 
+        "field2": "2012-04-23T18:25:43.511Z",
+        "field3": "2012-04-23T18:25:43.511Z",
+        "state": "danger"
+      }, 
+      {
+        "field1": true, 
+        "field2": {
+
+        },
+        "field3": "https://www.youtube.com/watch?v=avb-VDa3ZG4",
+        "field4": "2012-04-23T18:25:43.511Z",
+        "state": "warning"
+      },  {
+        "field1": true, 
+        "field2": "2012-04-23T18:25:43.511Z",
+        "field3": "2012-04-23T18:25:43.511Z",
+        "field4": "2012-04-23T18:25:43.511Z"
+      },
+      {
+        "field1": false, 
+        "field2": ["ok", "test are allright", "just for made a ton of json"],
+        "field3": "2012-04-23T18:25:43.511Z",
+        "field4": "2012-04-23T18:25:43.511Z",
+        "field5": "2012-04-23T18:25:43.511Z"
+      }, 
+      {
+        "field1": true, 
+        "field2": "2012-04-23T18:25:43.511Z",
+        "field3": "2012-04-23T18:25:43.511Z",
+        "state": "danger"
+      }, 
+      {
+        "field1": true, 
+        "field2": {
+
+        },
+        "field3": "https://www.youtube.com/watch?v=avb-VDa3ZG4",
+        "field4": "2012-04-23T18:25:43.511Z",
+        "state": "warning"
+      }
+     
+    ],
+    "cols": [
+      "field1",
+      "field2",
+      "field3",
+      "field4"
+    ]
+    
+  },
+  "flow": {
+    "nodes": [
+      {
+        "id": 1,
+	      "title": "first node",
+	      "state": "normal",
+	      "pos": { 
+          "x": 100, "y": 0 }
+      },
+      {
+        "id": 2,
+	      "title": "danger node",
+	      "state": "danger",
+	      "pos": { 
+          "x": 300, "y": 400 }
+      },
+      {
+        "id": 3,
+	      "title": "warning node",
+	      "state": "warning",
+	      "pos": { 
+          "x": 500, "y": 0 }
+      },
+      {
+        "id": 4,
+	      "title": "another node",
+	      "state": "normal",
+	      "pos": { 
+          "x": 700, "y": 400 }
+      },
+      {
+        "id": 5,
+	      "title": "no state node",
+	      "pos": { 
+          "x": 100, "y": 0 }
+      },
+      {
+        "id": 6,
+	      "title": "lol, 6th another node",
+	      "state": "danger",
+	      "pos": { 
+          "x": 300, "y": 400 }
+      }
+
+    ],
+    "edges": [
+      {
+        "from": 1,
+        "to": 2,
+        "width": 2
+      }, 
+      {
+        "from": 3,
+        "to": 4,
+        "width": 2
+      }
+
+    ]
+  }
+ 
+}
