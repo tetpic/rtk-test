@@ -39,7 +39,7 @@ export default function TableBodyItem(props: any ) {
     
     
     return (
-        <div key={props.id+props.el+ ~~Math.random()*1000}  className={s.table__item} style={props.style} >
+        <div key={props.id + (~~Math.random()*1000)} className={s.table__item} style={props.style} >
            {item()}
         </div>
     )

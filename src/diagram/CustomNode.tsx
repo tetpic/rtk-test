@@ -3,8 +3,6 @@ import s from "./diagram.module.scss"
 
 
 export default function CustomNode({ data }: any) {  
-    console.log(data)
-    
     return (<>
      <Handle
         type="target"
