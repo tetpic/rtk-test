@@ -131,21 +131,21 @@
 	      "title": "first node",
 	      "state": "normal",
 	      "pos": { 
-          "x": 100, "y": 0 }
+          "x": 100, "y": 650 }
       },
       {
         "id": 2,
 	      "title": "danger node",
 	      "state": "danger",
 	      "pos": { 
-          "x": 300, "y": 400 }
+          "x": 300, "y": 300 }
       },
       {
         "id": 3,
 	      "title": "warning node",
 	      "state": "warning",
 	      "pos": { 
-          "x": 500, "y": 0 }
+          "x": 500, "y": 700 }
       },
       {
         "id": 4,
@@ -158,14 +158,14 @@
         "id": 5,
 	      "title": "no state node",
 	      "pos": { 
-          "x": 100, "y": 0 }
+          "x": 100, "y": 800 }
       },
       {
         "id": 6,
 	      "title": "lol, 6th another node",
 	      "state": "danger",
 	      "pos": { 
-          "x": 300, "y": 400 }
+          "x": 300, "y": 450 }
       }
 
     ],
@@ -178,6 +178,11 @@
       {
         "from": 3,
         "to": 4,
+        "width": 2
+      },  
+      {
+        "from": 5,
+        "to": 6,
         "width": 2
       }
 

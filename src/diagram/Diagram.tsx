@@ -1,31 +1,10 @@
-import { useState, useCallback, useEffect } from 'react';
-import ReactFlow, {
-  addEdge,
-  FitViewOptions,
-  applyNodeChanges,
-  applyEdgeChanges,
-  Node,
-  Edge,
-  NodeChange,
-  EdgeChange,
-  Connection,
-  DefaultEdgeOptions,
-  NodeTypes,
-  OnNodesChange,
-  OnEdgesChange,
-  OnConnect,
-} from 'reactflow';
+import { useState, useEffect } from 'react';
+import ReactFlow, {  FitViewOptions,DefaultEdgeOptions,NodeTypes} from 'reactflow';
 import { getFlow } from '../helpers/fetching';
 import 'reactflow/dist/style.css';
+import CustomNode from './CustomNode';
 
-import CustomFlow from './CustomFlow';
 
-const initialNodes: Node[] = [
-  { id: '1', data: { label: 'Node 1', state: 'warning' }, type: 'custom', position: { x: 100, y: 100 } },
-  { id: '2', data: { label: 'Node 2',  state: 'warning' }, position: { x: 300, y: 100 } },
-];
-
-const initialEdges: Edge[] = [{ id: 'e1-2', source: '1', target: '2' }];
 
 const fitViewOptions: FitViewOptions = {
   padding: 0.2,
@@ -36,44 +15,96 @@ const defaultEdgeOptions: DefaultEdgeOptions = {
 };
 
 const nodeTypes: NodeTypes = {
-  custom: CustomFlow,
+  custom: CustomNode,
 };
 
+export enum TNodeState {warning = "warning", normal= "normal", danger="danger" }
+
+type TNode = {
+	id: number;
+	title: string;
+	state: TNodeState;
+	pos: { x: number; y: number; }
+} 
+
+type TEdge = {
+	from: number;
+	to: number;
+	width: number;
+} 
+
+type TFlow = {
+	nodes: TNode [];
+    edges: TEdge [];
+}; 
+
 export default function Diagram() {
-  const [nodes, setNodes] = useState<Node[]>(initialNodes);
-  const [edges, setEdges] = useState<Edge[]>(initialEdges);
+    const [flow, setFlow] = useState<TFlow>();
 
-//   useEffect(()=>{
-//     getFlow().then(res=>{
-//         setNodes(res.nodes)
-//         setEdges(res.edges)
-//     })
-//   })
+    useEffect(()=>{
+        getFlow().then(res=>{
+          setFlow(res)         
+        })
+    }, [])
 
-  const onNodesChange: OnNodesChange = useCallback(
-    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
-    [setNodes]
-  );
-//   const onEdgesChange: OnEdgesChange = useCallback(
-//     (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
-//     [setEdges]
-//   );
-//   const onConnect: OnConnect = useCallback(
-//     (connection) => setEdges((eds) => addEdge(connection, eds)),
-//     [setEdges]
-//   );
+    if(flow) {
+        return (
+            <CustomFlow data={flow} onChange={(flow:TFlow)=>{setFlow(flow)}}/>
+            );
+    } else {
+        return <>
+        ...Загрузка
+        </>
+    }
+}
 
-  return (
-    <div style={{ width: '100vw', height: '100vh' }}>
+export function CustomFlow(props:{data: TFlow, onChange: any}) {
+
+    let {data, onChange} = props
+
+  
+
+
+    let nodesForFlow = data?.nodes.map((el: any)=> {
+        return {
+            id: el.id.toString(),
+            position: el.pos,
+            data: {
+               label: el.title,
+               state: el.state           
+            },
+            type: 'custom'
+        }
+    }) 
+ 
+
+    let edgesForFlow = data?.edges.map((el: any)=> {
+        return {
+            id: `e${el.from + '-' + el.to}`,
+            source: el.from.toString(),
+            target: el.to.toString()
+        }
+    })
+
+    let onNodesChange = (el:any)=>{
+        if(el[0].position) {
+            let position = el[0].position
+            let index = data.nodes.findIndex(e=>e.id == el[0].id)            
+            data.nodes[index].pos = position         
+            onChange({...data})
+        }
+    }   
+
+
+    return  (<div style={{ width: '100vw', height: 'calc(100vh - 100px)' }}>
     <ReactFlow
-      nodes={nodes}
-      edges={edges}
+      nodes={nodesForFlow}
+      edges={edgesForFlow}
       onNodesChange={onNodesChange}     
       fitView
       fitViewOptions={fitViewOptions}
       defaultEdgeOptions={defaultEdgeOptions}
       nodeTypes={nodeTypes}      
       />
-    </div>
-  );
+    </div>)
 }

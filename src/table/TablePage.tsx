@@ -21,7 +21,6 @@ export default function TablePage() {
         pages = pages > ~~pages?~~pages+1:~~pages
         
         let nextPage = ()=> {
-            
             if(pageNumber < pages) {            
                 setPage(pageNumber + 1)
             }
@@ -44,8 +43,8 @@ export default function TablePage() {
             <Table {...data} pageSize={pageSize} pageNumber={pageNumber}/>
             <div className={s.pagination}>
                 <button onClick={prevPage}>Назад</button>{}
-                    {paginationItemsArray.map((el)=> {
-                        return <p className={el==pageNumber?s.activePaginationItem: s.paginationItem} onClick={()=>setPage(el)}>{el}</p>
+                    {paginationItemsArray.map((el, index)=> {
+                        return <p key={"pager_"+index} className={el==pageNumber?s.activePaginationItem: s.paginationItem} onClick={()=>setPage(el)}>{el}</p>
                     })}
                 <button onClick={nextPage}>Дальше</button>
             </div>

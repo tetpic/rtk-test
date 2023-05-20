@@ -11,6 +11,9 @@
     &__item{
         --rowWidth: 25%;
         width: var(--rowWidth);
+        border-left: 2px black solid;
+        box-sizing: border-box;
+        padding: 6px;
     }
 
 }

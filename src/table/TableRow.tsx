@@ -12,7 +12,7 @@ export default function TableRow(props: {cols: string[], items: RowItem[]}) {
             
             if (index < cols.length && cols.indexOf(el)>=0) {
                 return (<>
-                <TableBodyItem el={items[el]} style={{width: `${100/props.cols.length}%`}}/>
+                <TableBodyItem id={el+index} el={items[el]} style={{width: `${100/props.cols.length}%`}}/>
             </>)
             }
         })}

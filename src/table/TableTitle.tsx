@@ -4,9 +4,9 @@ export default function TableTitle(props: {cols: string[]} ) {
     
     return (
         <div className={s.table__row}>
-            {props.cols.map(el=>{
+            {props.cols.map((el, index)=>{
                 return (
-                    <div className={s.table__item} style={{width: `${100/props.cols.length}%`}}>{el}</div>
+                    <div key={'title_'+ index} className={s.table__item} style={{width: `${100/props.cols.length}%`}}>{el}</div>
                 )
             })}
         </div>

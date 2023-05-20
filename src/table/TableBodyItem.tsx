@@ -5,6 +5,7 @@ export default function TableBodyItem(props: any ) {
 
   
     const itemType = checkItemType(props.el) as ItemType
+    
    
 
     const item = () => {
@@ -38,7 +39,7 @@ export default function TableBodyItem(props: any ) {
     
     
     return (
-        <div className={s.table__item} style={props.style} >
+        <div key={props.id+props.el+ ~~Math.random()*1000}  className={s.table__item} style={props.style} >
            {item()}
         </div>
     )
